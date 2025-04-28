@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   async function ap() {
@@ -16,22 +16,24 @@ function App() {
   }
 
   ap();
-  let [btn, setBtn] = useState(0);
-  let [boat, setBoat] = useState("");
+  const [btn, setBtn] = useState(0);
+  const [boat, setBoat] = useState("");
+  useEffect(() => {
+    console.log("M");
+    return () => console.log("UM");
+  },)
   const addbtn = () => {
-    setBtn((val) => {
-      return val + 1;
-    });
+    setBtn((val) => val + 1 );
   };
   const decbtn = () => {
-    setBtn((cval) => {
-      return cval - 1;
-    });
+    setBtn((cval) => cval - 1);
   };
 
   const chval = (ch: React.ChangeEvent<HTMLInputElement>) => {
     setBoat(ch.target.value);
   };
+
+
   return (
     <div className="App">
       <h1>useState</h1>
